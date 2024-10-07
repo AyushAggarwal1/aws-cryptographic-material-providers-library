@@ -23,13 +23,6 @@ const Runtimes = {
     "project.properties": {
       dependencies: [],
     },
-    "AwsCryptographicMaterialProviders/runtimes/java/build.gradle.kts": {
-      dependencies: [],
-    },
-    "TestVectorsAwsCryptographicMaterialProviders/runtimes/java/build.gradle.kts":
-      {
-        dependencies: [],
-      },
   },
   net: {
     "AwsCryptographicMaterialProviders/runtimes/net/MPL.csproj": {
@@ -114,27 +107,6 @@ module.exports = {
             results: Object.keys(Runtimes.java).map(CheckResults),
             countMatches: true,
           },
-          // Update the version for all Gradle Java projects
-          // Does not update the dependencies
-          {
-            files: Object.keys(Runtimes.java),
-            from: 'version = ".*"',
-            to: 'version = "${nextRelease.version}"',
-            results: Object.keys(Runtimes.java).map(CheckResults),
-            countMatches: true,
-          },
-          // Now update the Gradle Java  dependencies
-          ...Object.entries(Runtimes.java).flatMap(([file, { dependencies }]) =>
-            dependencies.map((dependency) => ({
-              files: [file],
-              from: `implementation("${dependency}:.*")`,
-              to:
-                `implementation("${dependency}:` + '${nextRelease.version}" />',
-              results: [CheckResults(file)],
-              countMatches: true,
-            })),
-          ),
-
           // Update the version for all DotNet projects
           // Does not update the dependencies
           {
