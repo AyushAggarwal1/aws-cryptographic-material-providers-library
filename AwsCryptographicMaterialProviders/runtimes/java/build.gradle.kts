@@ -19,7 +19,7 @@ var dafnyVersion = props.getProperty("dafnyVersion")
 
 group = "software.amazon.cryptography"
 // version = props.getProperty("mplVersion")
-version = "1.7.0-SNAPSHOT"
+version = "1.7.1-SNAPSHOT"
 description = "AWS Cryptographic Material Providers Library"
 
 sourceSets {
