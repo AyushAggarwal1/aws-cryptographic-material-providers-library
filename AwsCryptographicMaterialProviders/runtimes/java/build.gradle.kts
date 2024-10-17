@@ -101,7 +101,7 @@ dependencies {
 
     // Dafny dependencies
     implementation("org.dafny:DafnyRuntime:${dafnyVersion}")
-    implementation("software.amazon.smithy.dafny:conversion:0.1")
+    implementation("software.amazon.smithy.dafny:conversion:0.1.1")
 
     // sdk dependencies
     implementation(platform("software.amazon.awssdk:bom:2.26.3"))
@@ -115,6 +115,11 @@ dependencies {
     testImplementation("org.testng:testng:7.5")
 
     // Example Dependencies
+    examplesImplementation("software.amazon.awssdk:arns")
+    examplesImplementation("software.amazon.awssdk:auth")
+    examplesImplementation("software.amazon.awssdk:sts")
+    examplesImplementation("software.amazon.awssdk:utils")
+    examplesImplementation("software.amazon.awssdk:apache-client")
     examplesImplementation("com.google.code.findbugs:jsr305:3.0.2")
     examplesImplementation("com.google.guava:guava:33.3.1-jre")
 }
